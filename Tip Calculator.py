@@ -10,7 +10,7 @@ class MyGUI:
 
         self.root = Tk()
         self.root.title('Tip Calculator!')
-        self.root.geometry('550x350')
+        self.root.geometry('600x370')
 
         self.things = Label(self.root, text='The default value for our tip calculation is 15%.', font=('Times New Roman', 14))
         self.things.pack(padx=10,pady=20)
@@ -24,13 +24,16 @@ class MyGUI:
         self.answer = Label(self.root, text= ' ', font=('Times New Roman', 22))
         self.answer.pack(padx=10,pady=10)
 
-
+        #this is the instruction for the user- this just demonstrates that there is logic to let the user know if they didn't enter an amount
+        #and that this programmer can set these sort of parameters.
+        #although this itself is just the instruction.
+        self.suggest = Label(self.root, text='*try hitting \'Calculate\' without entering anything in, to see what happens*', font=('Times New Roman', 14))
+        self.suggest.pack(padx=10,pady=20)
 
         # This is the line that makes clicking the exit button have a result, here as called with on_closing
         self.root.protocol('WM_DELETE_WINDOW', self.on_closing)
 
         self.root.mainloop()
-
 
     def calculate(self):
         if self.textbox.get() == '':
